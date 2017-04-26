@@ -1,0 +1,66 @@
+[alias]
+  # The basic aliases
+  s = status
+  cm = commit -m
+  cp = cherry-pick
+
+  # Branch related aliases
+  br = branch
+  co = checkout
+  com = checkout master
+  cod = checkout develop
+
+  # Syncing related aliases
+  pur = pull --rebase
+  prune = fetch --prune
+
+  # Rebase related aliases
+  ri = rebase -i
+  rb = "!sh -c \"git rebase -i HEAD~$1\" -"
+  rc = rebase --continue
+  ra = rebase --abort
+  rs = rebase --skip
+  rod = rebase origin/develop
+  rom = rebase origin/master
+
+  # Stash related aliases
+  poop = stash pop
+
+  # Push related aliases
+  pom = push origin master
+  pod = push origin develop
+  force = push --force-with-lease
+
+  # Mistake related aliases
+  abort = checkout -- .
+  wait = reset HEAD
+  undo = reset --soft HEAD^
+  amend = commit --amend
+
+  # Diff related aliases
+  changes = diff --name-status
+  dic = diff --cached
+  diffstat = diff --stat
+  lg = log --pretty=oneline --abbrev-commit --graph --decorate
+  count = "!f() { git rev-list --count HEAD ^${1-develop}; }; f"
+
+[filter "media"]
+  clean = git media clean %f
+  smudge = git media smudge %f
+  required = true
+
+[transfer]
+  fsckobjects = true
+
+[fetch]
+  fsckobjects = true
+
+[receive]
+  fsckObjects = true
+
+[push]
+  default = current
+
+[status]
+  showUntrackedFiles = all
+0
