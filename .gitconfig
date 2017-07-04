@@ -44,6 +44,28 @@
   lg = log --pretty=oneline --abbrev-commit --graph --decorate
   count = "!f() { git rev-list --count HEAD ^${1-develop}; }; f"
 
+  #
+  # Working with branches
+  #
+
+  # Get the current branch name (not so useful in itself, but used in other aliases)
+  branch-name = "!git rev-parse --abbrev-ref HEAD"
+  # Push the current branch to the remote "origin", and set it to track the upstream branch
+  publish = "!git push -u origin $(git branch-name)"
+  # Delete the remote version of the current branch
+  unpublish = "!git push origin :$(git branch-name)"
+  # Delete any branches that have been merged into master
+  # See also: https://gist.github.com/robmiller/5133264
+  delete-merged-branches = "!git co master && git branch --merged | grep -v '\\*' | xargs -n 1 git branch -d"
+  #
+  # Working with files
+  #
+
+  # Unstage any files that have been added to the staging area
+  unstage = reset HEAD
+  # Show changes that have been staged
+  diffc = diff --cached
+
 [filter "media"]
   clean = git media clean %f
   smudge = git media smudge %f
