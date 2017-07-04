@@ -20,7 +20,6 @@ $fixers = [
     'braces',
     'cast_spaces',
     'class_definition',
-    'concat_without_spaces',
     'elseif',
     'encoding',
     'full_opening_tag',
