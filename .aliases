@@ -1,15 +1,18 @@
 # Common
 alias ..="cd .."
 alias ...="cd ../.."
-alias h='cd ~'
-alias c='clear'
-alias ll='ls -lahG'
-alias _code='cd ~/Code'
+alias h="cd ~"
+alias c="clear"
+alias ll="ls -lahG"
+alias code="cd ~/Code"
 alias tree="find . -print | sed -e 's;[^/]*/;|____;g;s;____|; |;g'"
 
 # Laravel
-alias artisan='php artisan'
-alias code_sniff='php-cs-fixer --verbose fix --config-file=.php_cs'
+alias art="php artisan"
+alias tinker="php artisan tinker"
+alias migrate="php artisan migrate"
+alias refresh="php artisan migrate:refresh --seed"
+alias code_sniff="php-cs-fixer --verbose fix"
 
 # Test
 alias codecept='vendor/bin/codecept'
@@ -17,9 +20,13 @@ alias crf='codecept run functional'
 alias cgf='codecept generate:cept functional'
 alias cra='codecept run acceptance'
 alias cga='codecept generate:cept acceptance'
+alias cr='codecept run'
 alias phpspec='vendor/bin/phpspec'
+alias test='vendor/bin/phpunit'
+alias tf='vendor/bin/phpunit --filter'
 alias start_phantomjs='vendor/bin/phantomjs --webdriver=4444 --webdriver-loglevel=NONE --ignore-ssl-errors=true --ssl-protocol=any &'
 alias stop_phantomjs='pgrep phantomjs | xargs kill'
+alias start_selenium='selenium-server -port 4444'
 alias stop_mysql='pgrep mysql | xargs kill'
 
 # Git
@@ -32,6 +39,8 @@ alias gch='git checkout'
 alias gdiff='git diff'
 alias glog="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
 alias nah="git reset --hard && git clean -df"
+alias wip="git add . && git commit -m 'wip'"
+#alias cleanup-dev-branches="!f() { git branch --merged ${1-master} | grep -v " ${1-master}$" | xargs -r git branch -d; }; f"
 
 # GitFlow
 alias gff='git flow feature'
@@ -52,7 +61,7 @@ bindkey "\e\e[C" end-of-line
 
 
 #####
-# Vagrant
+# VM
 alias vm='ssh vagrant@127.0.0.1 -p 2222'
 alias v='vagrant version && vagrant global-status'
 alias vst='vagrant status'
