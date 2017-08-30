@@ -1,0 +1,19 @@
+{
+    "workbench.iconTheme": "material-icon-theme",
+    "editor.fontFamily": "Roboto Mono, Menlo, Monaco, 'Courier New', monospace",
+    "editor.fontSize": 14,
+    "editor.lineHeight": 28,
+    "editor.minimap.enabled": false,
+    "css.validate": false,
+    "scss.validate": false,
+    "files.exclude": {
+        "**/.git": true,
+        "**/.idea": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/CVS": true,
+        "**/.DS_Store": true
+    },
+    "php.validate.run": "onType",
+    "php.executablePath": "/usr/local/bin/php"
+}
