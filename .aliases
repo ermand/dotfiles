@@ -58,15 +58,6 @@ alias gff='git flow feature'
 alias gfl='git flow release'
 alias gfh='git flow hotfix'
 
-# Personal SSH
-alias ssh_andelm='ssh root@85.159.215.147'
-alias ssh_ccl='ssh root@178.238.233.94'
-alias ssh_recall="ssh recall@77.242.25.108 -p 9022"
-alias ssh_inovacion="ssh forge@5.189.129.240"
-alias ssh_fastech="ssh forge@173.212.196.223"
-alias ssh_ecommerce="ssh forge@80.78.73.93"
-alias ssh_iproject="ssh crm@80.78.74.44"
-
 # Bindings
 bindkey -e
 #bindkey '^[[1;9C' forward-word
