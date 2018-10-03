@@ -1,6 +1,6 @@
 set nocompatible              " be iMproved, required
 
-so ~/.vim/plugins.vim
+"so ~/.vim/plugins.vim
 
 syntax enable
 
@@ -11,7 +11,7 @@ set number
 set linespace=13
 
 "------------------Visuals------------------"
-colorscheme atom-dark-256
+"colorscheme atom-dark-256
 set t_CO=256
 set guifont=Fira_Code:h14
 

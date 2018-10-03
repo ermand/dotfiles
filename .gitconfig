@@ -1,3 +1,7 @@
+[user]
+	email = ermand.duro@gmail.com
+	name = Ermand Durro
+
 [alias]
   # The basic aliases
   s = status
@@ -66,6 +70,9 @@
   # Show changes that have been staged
   diffc = diff --cached
 
+  # Remove files that are in .gitingore
+  sync-ignore = "!git rm --cached `git ls-files -i --exclude-from=.gitignore`"
+
 [filter "media"]
   clean = git media clean %f
   smudge = git media smudge %f
@@ -85,4 +92,3 @@
 
 [status]
   showUntrackedFiles = all
-

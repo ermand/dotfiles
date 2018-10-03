@@ -5,6 +5,7 @@ alias h="cd ~"
 alias c="clear"
 alias ll="ls -lahG"
 alias work="cd ~/Code"
+alias vm_lumas="cd ~/Code/Avenso/vm-spryker-ansible"
 alias tree="find . -print | sed -e 's;[^/]*/;|____;g;s;____|; |;g'"
 
 # Laravel
@@ -13,6 +14,16 @@ alias tinker="php artisan tinker"
 alias migrate="php artisan migrate"
 alias refresh="php artisan migrate:refresh --seed"
 alias code_sniff="php-cs-fixer --verbose fix"
+
+# NPM
+alias yrd="yarn run dev"
+alias yrw="yarn run watch"
+alias yrp="yarn run production"
+alias yrs="yarn run serve"
+alias nrd="npm run dev"
+alias nrw="npm run watch"
+alias nrp="npm run production"
+alias nrs="npm run serve"
 
 # Test
 alias codecept='vendor/bin/codecept'
@@ -47,6 +58,15 @@ alias gff='git flow feature'
 alias gfl='git flow release'
 alias gfh='git flow hotfix'
 
+# Personal SSH
+alias ssh_andelm='ssh root@85.159.215.147'
+alias ssh_ccl='ssh root@178.238.233.94'
+alias ssh_recall="ssh recall@77.242.25.108 -p 9022"
+alias ssh_inovacion="ssh forge@5.189.129.240"
+alias ssh_fastech="ssh forge@173.212.196.223"
+alias ssh_ecommerce="ssh forge@80.78.73.93"
+alias ssh_iproject="ssh crm@80.78.74.44"
+
 # Bindings
 bindkey -e
 #bindkey '^[[1;9C' forward-word
@@ -59,6 +79,14 @@ bindkey "\e\e[C" end-of-line
 # or if you prefer going word by word to the end:
 # bindkey "\e\e[C" forward-word
 
+# Avenso
+alias shop='cd ~/Code/Avenso/vm-spryker-ansible/server/shop'
+alias pim='cd ~/Code/Avenso/vm-spryker-ansible/server/pim'
+
+## NPM Avenso
+alias l:w='npm run lumas:watch'
+alias l:d='npm run lumas:dev'
+alias l:p='npm run lumas:prod'
 
 #####
 # VM
@@ -66,6 +94,7 @@ alias vm='ssh vagrant@127.0.0.1 -p 2222'
 alias v='vagrant version && vagrant global-status'
 alias vst='vagrant status'
 alias vup='vagrant up'
+alias voff='vagrant halt'
 alias vdo='vagrant halt'
 alias vssh='vagrant ssh'
 alias vkill='vagrant destroy'
