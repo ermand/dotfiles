@@ -4,9 +4,17 @@ alias ...="cd ../.."
 alias h="cd ~"
 alias c="clear"
 alias ll="ls -lahG"
-alias work="cd ~/Code"
+alias projects="cd ~/Code"
+alias work="cd ~/Code/everestate"
+alias personal="cd ~/Code/personal"
 alias vm_lumas="cd ~/Code/Avenso/vm-spryker-ansible"
 alias tree="find . -print | sed -e 's;[^/]*/;|____;g;s;____|; |;g'"
+alias subl="open -a /Applications/Sublime\ Text.app"
+alias rm='rm -i' # confirm removal
+alias cp='cp -i' # confirm copy
+alias mv='mv -i' # confirm move
+alias weather='curl v2.wttr.in' # print weather for current location (https://github.com/chubin/wttr.in)
+alias atom='open -a "Atom"'
 
 # Laravel
 alias art="php artisan"
@@ -16,8 +24,13 @@ alias refresh="php artisan migrate:refresh --seed"
 alias code_sniff="php-cs-fixer --verbose fix"
 alias cs="php-cs-fixer --verbose fix"
 alias ci="composer install"
+alias sail="./vendor/bin/sail"
+alias smigrate="./vendor/bin/sail migrate"
+alias sfresh="./vendor/bin/sail migrate:fresh --seed"
 
-# NPM
+
+# npm & yarn
+alias y="yarn"
 alias yrd="yarn run dev"
 alias yrw="yarn run watch"
 alias yrp="yarn run production"
@@ -27,26 +40,24 @@ alias nrw="npm run watch"
 alias nrp="npm run production"
 alias nrs="npm run serve"
 
+# Docker
+alias d-art="docker-compose exec php php /var/www/artisan"
+alias d-run="docker-compose exec"
+alias d-agencies-artisan="docker-compose exec agencies-php php /var/www/artisan"
+alias d-agencies-yarn="docker-compose exec agencies-nodejs yarn"
+alias d-agencies-composer="docker-compose exec agencies-php composer"
+
 # Test
-alias codecept='vendor/bin/codecept'
-alias crf='codecept run functional'
-alias cgf='codecept generate:cept functional'
-alias cra='codecept run acceptance'
-alias cga='codecept generate:cept acceptance'
-alias cr='codecept run'
-alias phpspec='vendor/bin/phpspec'
-alias test='vendor/bin/phpunit'
-alias tf='vendor/bin/phpunit --filter'
-alias tct="phpdbg -qrr ./vendor/phpunit/phpunit/phpunit --coverage-text"
-alias tch="phpdbg -qrr ./vendor/phpunit/phpunit/phpunit --coverage-html"
-alias start_phantomjs='vendor/bin/phantomjs --webdriver=4444 --webdriver-loglevel=NONE --ignore-ssl-errors=true --ssl-protocol=any &'
-alias stop_phantomjs='pgrep phantomjs | xargs kill'
-alias start_selenium='selenium-server -port 4444'
-alias stop_mysql='pgrep mysql | xargs kill'
+#alias test='vendor/bin/phpunit'
+#alias tf='vendor/bin/phpunit --filter'
+#alias tct="phpdbg -qrr ./vendor/phpunit/phpunit/phpunit --coverage-text"
+#alias tch="phpdbg -qrr ./vendor/phpunit/phpunit/phpunit --coverage-html"
+#alias stop_mysql='pgrep mysql | xargs kill'
 
 # Git
 alias gs='git status'
-alias gaa='git add'
+alias ga='git add'
+alias gaa='git add .'
 alias gc='git commit -m'
 alias gpush='git push'
 alias gpull='git pull'
@@ -62,26 +73,22 @@ alias gff='git flow feature'
 alias gfl='git flow release'
 alias gfh='git flow hotfix'
 
+
+# EverEstate
+alias show-all-es-indexes='yarn node ./scripts/elasticsearch-show-all-indices.js > all_indeces.js'
+
 # Bindings
-bindkey -e
+#bindkey -e
 #bindkey '^[[1;9C' forward-word
 #bindkey '^[[1;9D' backward-word
 
 # Forward  words
-bindkey "\e\e[D" backward-word
+#bindkey "\e\e[D" backward-word
 # Go end of line
-bindkey "\e\e[C" end-of-line
+#bindkey "\e\e[C" end-of-line
 # or if you prefer going word by word to the end:
 # bindkey "\e\e[C" forward-word
 
-# Avenso
-alias shop='cd ~/Code/Avenso/vm-spryker-ansible/server/shop'
-alias pim='cd ~/Code/Avenso/vm-spryker-ansible/server/pim'
-
-## NPM Avenso
-alias l:w='npm run lumas:watch'
-alias l:d='npm run lumas:dev'
-alias l:p='npm run lumas:prod'
 
 #####
 # VM
@@ -95,7 +102,7 @@ alias vssh='vagrant ssh'
 alias vkill='vagrant destroy'
 
 # reload bash aliases
-reload () {
-    echo "Reloading bash aliases"
-    source "${HOME}/.zshrc"
-}
+#reload () {
+#    echo "Reloading bash aliases"
+#    source "${HOME}/.zshrc"
+#}
