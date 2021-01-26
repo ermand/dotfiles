@@ -1,6 +1,6 @@
 [user]
-	email = ermand.duro@gmail.com
-	name = Ermand Durro
+  email = ermand.duro@gmail.com
+  name = Ermand Durro
 
 [alias]
   # The basic aliases
@@ -87,8 +87,22 @@
 [receive]
   fsckObjects = true
 
+[pull]
+  ff = only
+
 [push]
   default = current
 
 [status]
   showUntrackedFiles = all
+
+[core]
+  pager = delta
+  
+[delta]
+  plus-color = "#012800"
+  minus-color = "#340001"
+  syntax-theme = Monokai Extended
+  
+[interactive]
+  diffFilter = delta --color-only
