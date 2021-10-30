@@ -1,0 +1,124 @@
+// Place your key bindings in this file to overwrite the defaults
+[
+  {
+    "key": "alt+shift+t",
+    "command": "trailing-spaces.deleteTrailingSpaces",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "ctrl+w",
+    "command": "gitlens.diffLineWithWorking",
+    "when": "editorTextFocus && gitlens:isTracked"
+  },
+  {
+    "key": "alt+w",
+    "command": "extension.htmlTagWrap",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "shift+cmd+a",
+    "command": "editor.action.smartSelect.grow",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "ctrl+shift+cmd+right",
+    "command": "-editor.action.smartSelect.grow",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "alt+enter",
+    "command": "namespaceResolver.import",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "ctrl+alt+i",
+    "command": "-namespaceResolver.import",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "cmd+t",
+    "command": "better-phpunit.run"
+  },
+  {
+    "key": "cmd+k cmd+r",
+    "command": "-better-phpunit.run"
+  },
+  {
+    "key": "shift+cmd+t",
+    "command": "better-phpunit.run-previous"
+  },
+  {
+    "key": "cmd+k cmd+p",
+    "command": "-better-phpunit.run-previous"
+  },
+  {
+    "key": "ctrl+cmd+g",
+    "command": "editor.action.selectHighlights",
+    "when": "editorFocus"
+  },
+  {
+    "key": "shift+cmd+l",
+    "command": "-editor.action.selectHighlights",
+    "when": "editorFocus"
+  },
+  {
+    "key": "cmd+1",
+    "command": "workbench.action.toggleSidebarVisibility"
+  },
+  {
+    "key": "cmd+b",
+    "command": "-workbench.action.toggleSidebarVisibility"
+  },
+  {
+    "key": "alt+cmd+l",
+    "command": "console.log.wrap.down.prefix",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "ctrl+alt+w ctrl+alt+down",
+    "command": "-console.log.wrap.down.prefix",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "ctrl+shift+right",
+    "command": "editor.emmet.action.balanceIn"
+  },
+  {
+    "key": "ctrl+shift+left",
+    "command": "editor.emmet.action.balanceOut"
+  },
+  {
+    "key": "cmd+m cmd+l",
+    "command": "workbench.action.editor.changeLanguageMode"
+  },
+  {
+    "key": "cmd+k m",
+    "command": "-workbench.action.editor.changeLanguageMode"
+  },
+  {
+    "key": "alt+t",
+    "command": "extension.runJest"
+  },
+  {
+    "key": "alt+d",
+    "command": "extension.debugJest"
+  },
+  {
+    "key": "ctrl+alt+r",
+    "command": "code-runner.run"
+  },
+  {
+    "key": "ctrl+alt+n",
+    "command": "-code-runner.run"
+  },
+  {
+    "key": "cmd+k cmd+j",
+    "command": "editor.unfoldAll",
+    "when": "editorFocus"
+  },
+  {
+    "key": "cmd+k cmd+0",
+    "command": "-editor.unfoldAll",
+    "when": "editorFocus"
+  }
+]
