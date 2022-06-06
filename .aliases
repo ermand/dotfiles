@@ -3,9 +3,13 @@ alias ..="cd .."
 alias ...="cd ../.."
 alias h="cd ~"
 alias c="clear"
-alias ll="ls -lahG"
-alias projects="cd ~/Code"
-alias work="cd ~/Code/everestate"
+
+#alias ll="ls -lahG"
+alias ll="exa -l -g --icons"
+alias lla="ll -a"
+alias llt="ll --tree --level=2 -a"
+
+alias work="cd ~/Code"
 alias personal="cd ~/Code/personal"
 alias vm_lumas="cd ~/Code/Avenso/vm-spryker-ansible"
 alias tree="find . -print | sed -e 's;[^/]*/;|____;g;s;____|; |;g'"
@@ -14,7 +18,8 @@ alias rm='rm -i' # confirm removal
 alias cp='cp -i' # confirm copy
 alias mv='mv -i' # confirm move
 alias weather='curl v2.wttr.in' # print weather for current location (https://github.com/chubin/wttr.in)
-alias atom='open -a "Atom"'
+#alias atom='open -a "Atom"'
+alias vim='nvim'
 
 # Laravel
 alias art="php artisan"
@@ -28,7 +33,6 @@ alias sail="./vendor/bin/sail"
 alias smigrate="./vendor/bin/sail migrate"
 alias sfresh="./vendor/bin/sail migrate:fresh --seed"
 
-
 # npm & yarn
 alias y="yarn"
 alias yrd="yarn run dev"
@@ -41,11 +45,9 @@ alias nrp="npm run production"
 alias nrs="npm run serve"
 
 # Docker
+alias dc="docker-compose"
 alias d-art="docker-compose exec php php /var/www/artisan"
 alias d-run="docker-compose exec"
-alias d-agencies-artisan="docker-compose exec agencies-php php /var/www/artisan"
-alias d-agencies-yarn="docker-compose exec agencies-nodejs yarn"
-alias d-agencies-composer="docker-compose exec agencies-php composer"
 
 # Test
 #alias test='vendor/bin/phpunit'
@@ -66,43 +68,10 @@ alias gdiff='git diff'
 alias glog="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
 alias nah="git reset --hard && git clean -df"
 alias wip="git add . && git commit -m 'wip'"
-#alias cleanup-dev-branches="!f() { git branch --merged ${1-master} | grep -v " ${1-master}$" | xargs -r git branch -d; }; f"
-
-# GitFlow
-alias gff='git flow feature'
-alias gfl='git flow release'
-alias gfh='git flow hotfix'
-
-
-# EverEstate
-alias show-all-es-indexes='yarn node ./scripts/elasticsearch-show-all-indices.js > all_indeces.js'
-
-# Bindings
-#bindkey -e
-#bindkey '^[[1;9C' forward-word
-#bindkey '^[[1;9D' backward-word
-
-# Forward  words
-#bindkey "\e\e[D" backward-word
-# Go end of line
-#bindkey "\e\e[C" end-of-line
-# or if you prefer going word by word to the end:
-# bindkey "\e\e[C" forward-word
-
-
-#####
-# VM
-alias vm='ssh vagrant@127.0.0.1 -p 2222'
-alias v='vagrant version && vagrant global-status'
-alias vst='vagrant status'
-alias vup='vagrant up'
-alias voff='vagrant halt'
-alias vdo='vagrant halt'
-alias vssh='vagrant ssh'
-alias vkill='vagrant destroy'
+alias cleanup-dev-branches="!f() { git branch --merged ${1-master} | grep -v " ${1-master}$" | xargs -r git branch -d; }; f"
 
 # reload bash aliases
-#reload () {
-#    echo "Reloading bash aliases"
-#    source "${HOME}/.zshrc"
-#}
+reload () {
+    echo "Reloading bash aliases"
+    source "${HOME}/.zshrc"
+}
