@@ -31,6 +31,12 @@ keymap.set("n", "<leader>tx", ":tabclose<CR>") -- close current tab
 keymap.set("n", "<leader>tn", ":tabn<CR>") --  go to next tab
 keymap.set("n", "<leader>tp", ":tabp<CR>") --  go to previous tab
 
+-- Resize with arrows
+keymap.set("n", "<S-Up>", ":resize -2<CR>")
+keymap.set("n", "<S-Down>", ":resize +2<CR>")
+keymap.set("n", "<S-Left>", ":vertical resize -2<CR>")
+keymap.set("n", "<S-Right>", ":vertical resize +2<CR>")
+
 ----------------------
 -- Plugin Keybinds
 ----------------------
@@ -38,8 +44,10 @@ keymap.set("n", "<leader>tp", ":tabp<CR>") --  go to previous tab
 -- vim-maximizer
 keymap.set("n", "<leader>sm", ":MaximizerToggle<CR>") -- toggle split window maximization
 
--- nvim-tree
-keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>") -- toggle file explorer
+-- neo-tree
+-- keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>") -- toggle file explorer
+keymap.set("n", "<leader>e", "<cmd>Neotree toggle<cr>")
+keymap.set("n", "<leader>o", "<cmd>Neotree focus<cr>")
 
 -- telescope
 keymap.set("n", "<leader>ff", "<cmd>Telescope find_files<cr>") -- find files within current working directory, respects .gitignore
