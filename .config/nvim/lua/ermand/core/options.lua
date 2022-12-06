@@ -42,3 +42,6 @@ opt.iskeyword:append("-") -- consider string-string as whole word
 
 -- swap files
 opt.swapfile = false
+
+-- Persist undo tree across neovim sessions
+opt.undofile = true
