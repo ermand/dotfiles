@@ -10,11 +10,34 @@ local keymap = vim.keymap -- for conciseness
 -- use jk to exit insert mode
 keymap.set("i", "jk", "<ESC>")
 
+-- move highlighted text
+keymap.set("v", "J", ":m '>+1<CR>gv=gv")
+keymap.set("v", "K", ":m '<-2<CR>gv=gv")
+
+-- move lines
+keymap.set("n", "J", "mzJ`z")
+
+-- keep cursor centered
+keymap.set("n", "<C-d>", "<C-d>zz")
+keymap.set("n", "<C-u>", "<C-u>zz")
+keymap.set("n", "n", "nzzzv")
+keymap.set("n", "N", "Nzzzv")
+
 -- clear search highlights
 keymap.set("n", "<leader>nh", ":nohl<CR>")
 
 -- delete single character without copying into register
 keymap.set("n", "x", '"_x')
+
+-- paste from clipboard without copying into register
+keymap.set("x", "<leader>p", '"_dP')
+
+-- delete to avoid copying into register
+keymap.set("n", "<leader>d", '"_d')
+keymap.set("v", "<leader>d", '"_d')
+
+-- unbind capital Q
+keymap.set("n", "Q", "<nop>")
 
 -- increment/decrement numbers
 keymap.set("n", "<leader>+", "<C-a>") -- increment
@@ -37,9 +60,14 @@ keymap.set("n", "<S-Down>", ":resize +2<CR>")
 keymap.set("n", "<S-Left>", ":vertical resize -2<CR>")
 keymap.set("n", "<S-Right>", ":vertical resize +2<CR>")
 
+-- jump between projects in tmux
+-- keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
+
+keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
+
 ----------------------
 -- Plugin Keybinds
-----------------------
+---------------------
 
 -- vim-maximizer
 keymap.set("n", "<leader>sm", ":MaximizerToggle<CR>") -- toggle split window maximization
@@ -47,7 +75,7 @@ keymap.set("n", "<leader>sm", ":MaximizerToggle<CR>") -- toggle split window max
 -- neo-tree
 -- keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>") -- toggle file explorer
 keymap.set("n", "<leader>e", "<cmd>Neotree toggle<cr>")
-keymap.set("n", "<leader>o", "<cmd>Neotree focus<cr>")
+keymap.set("n", "<leader>w", "<cmd>Neotree focus<cr>")
 
 -- telescope
 keymap.set("n", "<leader>ff", "<cmd>Telescope find_files<cr>") -- find files within current working directory, respects .gitignore

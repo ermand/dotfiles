@@ -16,6 +16,8 @@ opt.wrap = false -- disable line wrapping
 -- search settings
 opt.ignorecase = true -- ignore case when searching
 opt.smartcase = true -- if you include mixed case in your search, assumes you want case-sensitive
+opt.hlsearch = false -- highlight search results
+opt.incsearch = true -- show search results as you type
 
 -- cursor line
 opt.cursorline = true -- highlight the current cursor line
@@ -27,6 +29,9 @@ opt.cursorline = true -- highlight the current cursor line
 opt.termguicolors = true
 opt.background = "dark" -- colorschemes that can be light or dark will be made dark
 opt.signcolumn = "yes" -- show sign column so that text doesn't shift
+opt.scrolloff = 8 -- keep 8 lines above and below cursor when scrolling
+opt.isfname:append("@-@") -- allow @ in filenames
+opt.colorcolumn = "80" -- show a vertical line at column 80
 
 -- backspace
 opt.backspace = "indent,eol,start" -- allow backspace on indent, end of line or insert mode start position
@@ -45,3 +50,6 @@ opt.swapfile = false
 
 -- Persist undo tree across neovim sessions
 opt.undofile = true
+
+-- update time
+opt.updatetime = 50 -- set update time to 50ms
