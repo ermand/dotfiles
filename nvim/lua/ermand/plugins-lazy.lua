@@ -181,6 +181,14 @@ require("lazy").setup({
     end,
   },
 
+  -- alpha
+  {
+    "goolord/alpha-nvim",
+    config = function()
+      require("ermand.plugins.alpha")
+    end,
+  },
+
   -- editorconfig
   "gpanders/editorconfig.nvim",
   {
