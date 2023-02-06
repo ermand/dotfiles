@@ -1,53 +1,15 @@
 -- set leader key to space
 vim.g.mapleader = " "
-vim.g.maplocalleader = " "
 
 local keymap = vim.keymap -- for conciseness
 
 ---------------------
 -- General Keymaps
 ---------------------
-keymap.set("n", "<leader>Q", ":bufdo bdelete<CR>")
 
 -- use jk to exit insert mode
 keymap.set("i", "jk", "<ESC>")
 
--- Allow gf to open non-existent files
-keymap.set("", "gf", ":edit <cfile><CR>")
-
--- Reselect visual selection after indenting
-keymap.set("v", "<", "<gv")
-keymap.set("v", ">", ">gv")
-
--- Maintain the cursor position when yanking a visual selection
--- http://ddrscott.github.io/blog/2016/yank-without-jank/
-keymap.set("v", "y", "myy`y")
-keymap.set("v", "Y", "myY`y")
-
--- When text is wrapped, move by terminal rows, not lines, unless a count is provided
-keymap.set("n", "k", "v:count == 0 ? 'gk' : 'k'", { expr = true })
-keymap.set("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true })
-
--- Paste replace visual selection without copying it
-keymap.set("v", "p", '"_dP')
-
--- Easy insertion of a trailing ; or , from insert mode
-keymap.set("i", ";;", "<Esc>A;<Esc>")
-keymap.set("i", ",,", "<Esc>A,<Esc>")
-
--- Open the current file in the default program (on Mac this should just be just `open`)
-keymap.set("n", "<leader>x", ":!xdg-open %<cr><cr>")
-
--- Disable annoying command line thing
-keymap.set("n", "q:", ":q<CR>")
-
--- Move text up and down
-keymap.set("i", "<A-k>", "<Esc>:move .-2<CR>==gi")
-keymap.set("i", "<A-j>", "<Esc>:move .+1<CR>==gi")
-keymap.set("x", "<A-j>", ":move '>+1<CR>gv-gv")
-keymap.set("x", "<A-k>", ":move '<-2<CR>gv-gv")
-
---- Existing previously
 -- move highlighted text
 keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 keymap.set("v", "K", ":m '<-2<CR>gv=gv")
@@ -101,7 +63,7 @@ keymap.set("n", "<S-Right>", ":vertical resize +2<CR>")
 -- jump between projects in tmux
 -- keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
 
--- keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
+keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 
 ----------------------
 -- Plugin Keybinds
@@ -116,11 +78,11 @@ keymap.set("n", "<leader>e", "<cmd>Neotree toggle<cr>")
 keymap.set("n", "<leader>w", "<cmd>Neotree focus<cr>")
 
 -- telescope
--- keymap.set("n", "<leader>ff", "<cmd>Telescope find_files<cr>") -- find files within current working directory, respects .gitignore
--- keymap.set("n", "<leader>fs", "<cmd>Telescope live_grep<cr>") -- find string in current working directory as you type
--- keymap.set("n", "<leader>fc", "<cmd>Telescope grep_string<cr>") -- find string under cursor in current working directory
--- keymap.set("n", "<leader>fb", "<cmd>Telescope buffers<cr>") -- list open buffers in current neovim instance
--- keymap.set("n", "<leader>fh", "<cmd>Telescope help_tags<cr>") -- list available help tags
+keymap.set("n", "<leader>ff", "<cmd>Telescope find_files<cr>") -- find files within current working directory, respects .gitignore
+keymap.set("n", "<leader>fs", "<cmd>Telescope live_grep<cr>") -- find string in current working directory as you type
+keymap.set("n", "<leader>fc", "<cmd>Telescope grep_string<cr>") -- find string under cursor in current working directory
+keymap.set("n", "<leader>fb", "<cmd>Telescope buffers<cr>") -- list open buffers in current neovim instance
+keymap.set("n", "<leader>fh", "<cmd>Telescope help_tags<cr>") -- list available help tags
 
 -- telescope git commands (not on youtube nvim video)
 keymap.set("n", "<leader>gc", "<cmd>Telescope git_commits<cr>") -- list all git commits (use <cr> to checkout) ["gc" for git commits]
