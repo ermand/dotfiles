@@ -9,7 +9,6 @@ treesitter.setup({
   -- enable syntax highlighting
   highlight = {
     enable = true,
-    disable = { "NeoTree" },
   },
   -- enable indentation
   indent = { enable = true },
@@ -33,28 +32,6 @@ treesitter.setup({
     "vim",
     "dockerfile",
     "gitignore",
-    "php",
-    "phpdoc",
-    "comment",
-    "vue",
-    "rust",
-  },
-  textobjects = {
-    select = {
-      enable = true,
-      lookahead = true,
-      keymaps = {
-        ["if"] = "@function.inner",
-        ["af"] = "@function.outer",
-        ["ic"] = "@class.inner",
-        ["ac"] = "@class.outer",
-        ["ia"] = "@parameter.inner",
-        ["aa"] = "@parameter.outer",
-      },
-    },
-  },
-  context_commentstring = {
-    enable = true,
   },
   -- auto install above language parsers
   auto_install = true,
