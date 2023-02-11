@@ -33,8 +33,8 @@ lualine.setup({
   options = {
     -- theme = lualine_nightfly,
     theme = lualine_nightfly,
-    component_separators = { left = "|", right = "|" },
-    section_separators = { left = "", right = "" },
+    -- component_separators = { left = "|", right = "|" },
+    -- section_separators = { left = "", right = "" },
     globalstatus = true,
   },
 })
