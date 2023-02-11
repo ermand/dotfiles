@@ -7,6 +7,8 @@ require("indent_blankline").setup({
     "lspinfo",
     "TelescopePrompt",
     "TelescopeResults",
+    "neo-tree",
+    "lazy",
   },
   buftype_exclude = {
     "terminal",
@@ -14,5 +16,6 @@ require("indent_blankline").setup({
     "NeoTree",
   },
   show_trailing_blankline_indent = false,
+  show_current_context = false,
   show_first_indent_level = true,
 })
