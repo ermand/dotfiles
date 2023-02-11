@@ -100,23 +100,24 @@ require("lazy").setup({
 
   {
     "VonHeikemen/lsp-zero.nvim",
+    branch = "v1.x",
     dependencies = {
       -- LSP Support
-      { "neovim/nvim-lspconfig" },
-      { "williamboman/mason.nvim" },
-      { "williamboman/mason-lspconfig.nvim" },
+      { "neovim/nvim-lspconfig" }, -- Required
+      { "williamboman/mason.nvim" }, -- Optional
+      { "williamboman/mason-lspconfig.nvim" }, -- Optional
 
-      -- Autocompletio
-      { "hrsh7th/nvim-cmp" },
-      { "hrsh7th/cmp-buffer" },
-      { "hrsh7th/cmp-path" },
-      { "saadparwaiz1/cmp_luasnip" },
-      { "hrsh7th/cmp-nvim-lsp" },
-      { "hrsh7th/cmp-nvim-lua" },
+      -- Autocompletion
+      { "hrsh7th/nvim-cmp" }, -- Required
+      { "hrsh7th/cmp-nvim-lsp" }, -- Required
+      { "hrsh7th/cmp-buffer" }, -- Optional
+      { "hrsh7th/cmp-path" }, -- Optional
+      { "saadparwaiz1/cmp_luasnip" }, -- Optional
+      { "hrsh7th/cmp-nvim-lua" }, -- Optional
 
       -- Snippets
-      { "L3MON4D3/LuaSnip" },
-      { "rafamadriz/friendly-snippets" },
+      { "L3MON4D3/LuaSnip" }, -- Required
+      { "rafamadriz/friendly-snippets" }, -- Optional
     },
   },
   { "glepnir/lspsaga.nvim", branch = "main" }, -- enhanced lsp uis
@@ -156,7 +157,14 @@ require("lazy").setup({
     end,
   }, -- autoclose parens, brackets, quotes, etc...
   -- { "windwp/nvim-ts-autotag", after = "nvim-treesitter" }, -- autoclose tags
-
+  {
+    "akinsho/bufferline.nvim",
+    dependencies = "kyazdani42/nvim-web-devicons",
+    after = "catppuccin/nvim",
+    config = function()
+      require("ermand.plugins.bufferline")
+    end,
+  },
   -- git integration
   {
     "lewis6991/gitsigns.nvim",
