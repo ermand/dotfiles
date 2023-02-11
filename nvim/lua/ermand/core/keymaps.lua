@@ -3,7 +3,6 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
 local keymap = vim.keymap -- for conciseness
-
 ---------------------
 -- General Keymaps
 ---------------------
@@ -87,10 +86,16 @@ keymap.set("n", "<leader>sh", "<C-w>s") -- split window horizontally
 keymap.set("n", "<leader>se", "<C-w>=") -- make split windows equal width & height
 keymap.set("n", "<leader>sx", ":close<CR>") -- close current split window
 
-keymap.set("n", "<leader>to", ":tabnew<CR>") -- open new tab
-keymap.set("n", "<leader>tx", ":tabclose<CR>") -- close current tab
-keymap.set("n", "<leader>tn", ":tabn<CR>") --  go to next tab
-keymap.set("n", "<leader>tp", ":tabp<CR>") --  go to previous tab
+-- buffers
+keymap.set("n", "<S-h>", "<cmd>bprevious<cr>", { desc = "Prev buffer" })
+keymap.set("n", "<S-l>", "<cmd>bnext<cr>", { desc = "Next buffer" })
+keymap.set("n", "[b", "<cmd>bprevious<cr>", { desc = "Prev buffer" })
+keymap.set("n", "]b", "<cmd>bnext<cr>", { desc = "Next buffer" })
+
+keymap.set("n", "<leader>to", "<cmd>tabnew<CR>") -- open new tab
+keymap.set("n", "<leader>tx", "<cmd>tabclose<CR>") -- close current tab
+keymap.set("n", "<leader>tn", "<cmd>tabnext<CR>") --  go to next tab
+keymap.set("n", "<leader>tp", "<cmd>tabprevious<CR>") --  go to previous tab
 
 -- Resize with arrows
 keymap.set("n", "<S-Up>", ":resize -2<CR>")
