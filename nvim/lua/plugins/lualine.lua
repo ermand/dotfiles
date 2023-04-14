@@ -15,15 +15,15 @@ if not lualine_ok then
   return
 end
 
-local custom_gruvbox = require("lualine.themes.gruvbox")
-
--- Change the background of lualine_c section for normal mode
-custom_gruvbox.normal.c.bg = require("lualine.utils.utils").extract_highlight_colors("Normal", "bg")
-custom_gruvbox.insert.c.bg = require("lualine.utils.utils").extract_highlight_colors("Normal", "bg")
-custom_gruvbox.visual.c.bg = require("lualine.utils.utils").extract_highlight_colors("Normal", "bg")
-custom_gruvbox.replace.c.bg = require("lualine.utils.utils").extract_highlight_colors("Normal", "bg")
-custom_gruvbox.command.c.bg = require("lualine.utils.utils").extract_highlight_colors("Normal", "bg")
-custom_gruvbox.inactive.c.bg = require("lualine.utils.utils").extract_highlight_colors("Normal", "bg")
+-- local custom_gruvbox = require("lualine.themes.gruvbox")
+--
+-- -- Change the background of lualine_c section for normal mode
+-- custom_gruvbox.normal.c.bg = require("lualine.utils.utils").extract_highlight_colors("Normal", "bg")
+-- custom_gruvbox.insert.c.bg = require("lualine.utils.utils").extract_highlight_colors("Normal", "bg")
+-- custom_gruvbox.visual.c.bg = require("lualine.utils.utils").extract_highlight_colors("Normal", "bg")
+-- custom_gruvbox.replace.c.bg = require("lualine.utils.utils").extract_highlight_colors("Normal", "bg")
+-- custom_gruvbox.command.c.bg = require("lualine.utils.utils").extract_highlight_colors("Normal", "bg")
+-- custom_gruvbox.inactive.c.bg = require("lualine.utils.utils").extract_highlight_colors("Normal", "bg")
 
 local setup_config = {
   options = {
