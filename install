@@ -2,29 +2,44 @@
 
 DOTFILES=$(cd $(dirname "${BASH_SOURCE[0]}") && pwd)
 
-## kitty
-rm -rf $HOME/.config/kitty
-ln -s $DOTFILES/kitty $HOME/.config/kitty
-
-# alacritty
-rm -rf $HOME/.config/alacritty
-ln -s $DOTFILES/alacritty $HOME/.config/alacritty
-
-
-## tmux
-rm -rf $HOME/.config/tmux
-ln -s $DOTFILES/tmux $HOME/.config/tmux
-
 mkdir -p $HOME/.local/bin
-
-## t
-ln -sf $DOTFILES/scripts/t $HOME/.local/bin/t
 
 ## nvim
 rm -rf $HOME/.config/nvim
 ln -s $DOTFILES/nvim $HOME/.config/nvim
 
+## kitty
+rm -rf $HOME/.config/kitty
+ln -s $DOTFILES/kitty $HOME/.config/kitty
 
-## nvim
+# alacritty
+# rm -rf $HOME/.config/alacritty
+# ln -s $DOTFILES/alacritty $HOME/.config/alacritty
+
+## wezterm
+rm -rf $HOME/.config/wezterm
+ln -s $DOTFILES/wezterm $HOME/.config/wezterm
+
+## tmux
+rm -rf $HOME/.config/tmux
+ln -s $DOTFILES/tmux $HOME/.config/tmux
+
+## zellij
+rm -rf $HOME/.config/zellij
+ln -s $DOTFILES/zellij $HOME/.config/zellij
+
+## yabai
+rm -rf $HOME/.config/yabai
+ln -s $DOTFILES/yabai $HOME/.config/yabai
+
+
+## skhd
+rm -rf $HOME/.config/skhd
+ln -s $DOTFILES/skhd $HOME/.config/skhd
+
+## t
+ln -sf $DOTFILES/scripts/t $HOME/.local/bin/t
+
+## phpactor
 rm -rf $HOME/.config/phpactor
 ln -s $DOTFILES/phpactor $HOME/.config/phpactor
