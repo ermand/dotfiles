@@ -27,7 +27,7 @@ opt.hlsearch = false -- highlight search results
 opt.incsearch = true -- show search results as you type
 
 -- cursor line
-opt.cursorline = true -- highlight the current cursor line
+-- opt.cursorline = true -- highlight the current cursor line
 
 -- appearance
 
@@ -39,7 +39,7 @@ opt.signcolumn = "yes" -- show sign column so that text doesn't shift
 opt.scrolloff = 8 -- keep 8 lines above and below cursor when scrolling
 opt.isfname:append("@-@") -- allow @ in filenames
 opt.colorcolumn = "120" -- show a vertical line at column 80
-vim.opt.guicursor = ""
+-- vim.opt.guicursor = ""
 
 -- backspace
 opt.backspace = "indent,eol,start" -- allow backspace on indent, end of line or insert mode start position
