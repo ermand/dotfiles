@@ -150,9 +150,9 @@ keymap.set("n", "<leader>8", "<cmd>lua require('harpoon.ui').nav_file(8)<cr>", {
 keymap.set("n", "<leader>9", "<cmd>lua require('harpoon.ui').nav_file(9)<cr>", { desc = "Harpoon Buffer 9" })
 
 -- buffer
-vim.keymap.set("n", "<leader>bb", "<cmd>Telescope buffers<cr>", { desc = "Telescope" })
-vim.keymap.set("n", "<leader>bj", "<cmd>bn<cr>", { desc = "Next" })
-vim.keymap.set("n", "<leader>bk", "<cmd>bp<cr>", { desc = "Previous" })
-vim.keymap.set("n", "<leader>bn", "<cmd>bn<cr>", { desc = "Next" })
-vim.keymap.set("n", "<leader>bp", "<cmd>bp<cr>", { desc = "Previous" })
-vim.keymap.set("n", "<leader>bsd", "<cmd>%bd|e#|bd#<cr>|'<cr>", { desc = "Delete surrounding" })
+keymap.set("n", "<leader>bb", "<cmd>Telescope buffers<cr>", { desc = "Telescope" })
+keymap.set("n", "<leader>bj", "<cmd>bn<cr>", { desc = "Next" })
+keymap.set("n", "<leader>bk", "<cmd>bp<cr>", { desc = "Previous" })
+keymap.set("n", "<leader>bn", "<cmd>bn<cr>", { desc = "Next" })
+keymap.set("n", "<leader>bp", "<cmd>bp<cr>", { desc = "Previous" })
+keymap.set("n", "<leader>bsd", "<cmd>%bd|e#|bd#<cr>|'<cr>", { desc = "Delete surrounding" })
