@@ -1,7 +1,7 @@
-font_family      JetBrainsMono Nerd Font
-bold_font        JetBrainsMono Nerd Font Semibold
-italic_font      JetBrainsMono Nerd Font Italic
-bold_italic_font  JetBrainsMono Nerd Font Bold Italic
+font_family      JetBrainsMono
+# bold_font        JetBrainsMono Nerd Font Semibold
+# italic_font      JetBrainsMono Nerd Font Italic
+# bold_italic_font  JetBrainsMono Nerd Font Bold Italic
 
 font_size 13
 adjust_line_height 130%
@@ -63,6 +63,6 @@ map cmd+v        paste_from_clipboard
 
 
 # BEGIN_KITTY_THEME
-# Everforest Dark Hard
+# Alabaster Dark
 include current-theme.conf
 # END_KITTY_THEME
