@@ -1,62 +1,64 @@
-local lualine_c = {}
-local ok, noice = pcall(require, "noice")
-if ok then
-  lualine_c = { -- show macro recording
-    {
-      noice.api.statusline.mode.get,
-      cond = noice.api.statusline.mode.has,
-      color = { fg = "#ff9e64" },
-    },
-  }
-end
-
-local lualine_ok, lualine = pcall(require, "lualine")
-if not lualine_ok then
-  return
-end
-
--- local custom_gruvbox = require("lualine.themes.gruvbox")
---
--- -- Change the background of lualine_c section for normal mode
--- custom_gruvbox.normal.c.bg = require("lualine.utils.utils").extract_highlight_colors("Normal", "bg")
--- custom_gruvbox.insert.c.bg = require("lualine.utils.utils").extract_highlight_colors("Normal", "bg")
--- custom_gruvbox.visual.c.bg = require("lualine.utils.utils").extract_highlight_colors("Normal", "bg")
--- custom_gruvbox.replace.c.bg = require("lualine.utils.utils").extract_highlight_colors("Normal", "bg")
--- custom_gruvbox.command.c.bg = require("lualine.utils.utils").extract_highlight_colors("Normal", "bg")
--- custom_gruvbox.inactive.c.bg = require("lualine.utils.utils").extract_highlight_colors("Normal", "bg")
-
-local setup_config = {
-  options = {
-    icons_enabled = true,
-    globalstatus = true, -- show only one statusline in splits needs laststatus=3
-    theme = "catppuccin",
-    component_separators = "|",
-    section_separators = { left = "", right = "" },
-  },
-  sections = {
-    lualine_a = { { "mode", separator = { left = "", right = "" } } },
-    lualine_b = { "filename", "branch", "diff", "diagnostics" },
-    lualine_c = lualine_c,
-    lualine_x = {},
-    lualine_y = { "filetype", "progress" },
-    lualine_z = { { "location", separator = { left = "", right = "" } } },
-  },
-  inactive_sections = {
-    lualine_a = { "filename" },
-    lualine_b = {},
-    lualine_c = {},
-    lualine_x = {},
-    lualine_y = {},
-    lualine_z = { "location" },
-  },
-  tabline = {},
-  winbar = {},
-  inactive_winbar = {},
-  extensions = {},
-}
-
 return {
   "nvim-lualine/lualine.nvim",
   event = "VeryLazy",
-  opts = setup_config,
+  opts = function(plugin)
+    if plugin.override then
+      require("lazyvim.util").deprecate("lualine.override", "lualine.opts")
+    end
+
+    local icons = require("config.icons")
+
+    local navic = {
+      function()
+        return require("nvim-navic").get_location()
+      end,
+      cond = function()
+        return package.loaded["nvim-navic"] and require("nvim-navic").is_available()
+      end,
+    }
+
+    local diagnostics = {
+      "diagnostics",
+      sources = { "nvim_diagnostic" },
+      sections = { "error", "warn", "info", "hint" },
+      symbols = {
+        error = icons.diagnostics.Error,
+        hint = icons.diagnostics.Hint,
+        info = icons.diagnostics.Info,
+        warn = icons.diagnostics.Warn,
+      },
+      colored = true,
+      update_in_insert = false,
+      always_visible = false,
+    }
+
+    local diff = {
+      "diff",
+      symbols = {
+        added = icons.git.added .. " ",
+        untracked = icons.git.added .. " ",
+        modified = icons.git.changed .. " ",
+        removed = icons.git.deleted .. " ",
+      },
+      colored = true,
+      always_visible = false,
+    }
+
+    return {
+      options = {
+        theme = "auto",
+        globalstatus = true,
+        component_separators = { left = "", right = "" },
+        disabled_filetypes = { statusline = { "dashboard", "lazy", "alpha" } },
+      },
+      sections = {
+        lualine_a = { { "mode", separator = { left = "", right = "" } } },
+        lualine_b = {},
+        lualine_c = { diff, diagnostics, navic },
+        lualine_x = {},
+        lualine_y = {},
+        lualine_z = {},
+      },
+    }
+  end,
 }

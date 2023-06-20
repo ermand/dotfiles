@@ -21,6 +21,7 @@ return {
             end,
           }),
           nls.builtins.diagnostics.trail_space.with({ disabled_filetypes = { "NvimTree" } }),
+          -- nls.builtins.diagnostics.phpstan,
           nls.builtins.formatting.eslint_d.with({
             condition = function(utils)
               return utils.root_has_file({ ".eslintrc.js" })
