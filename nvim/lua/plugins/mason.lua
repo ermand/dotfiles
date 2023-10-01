@@ -54,6 +54,7 @@ return {
       "prettierd",
       "pyright",
       "rustywind",
+      "rust-analyzer",
       -- "shellcheck",
       "shfmt",
       "stylua",
