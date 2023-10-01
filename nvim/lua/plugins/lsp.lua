@@ -1,6 +1,9 @@
 return {
   {
     "neovim/nvim-lspconfig",
+    dependencies = {
+      "simrat39/rust-tools.nvim",
+    },
     opts = {
       servers = {
         tailwindcss = {},
@@ -17,6 +20,13 @@ return {
             "vue",
           },
         },
+        rust_analyzer = {},
+      },
+      setup = {
+        rust_analyzer = function(_, opts)
+          require("rust-tools").setup({ server = opts })
+          return true
+        end,
       },
     },
   },
@@ -41,5 +51,41 @@ return {
         return require("tailwindcss-colorizer-cmp").formatter(entry, item)
       end
     end,
+  },
+  {
+    "ray-x/go.nvim",
+    dependencies = { -- optional packages
+      "ray-x/guihua.lua",
+      "neovim/nvim-lspconfig",
+      "nvim-treesitter/nvim-treesitter",
+    },
+    config = function()
+      require("go").setup()
+    end,
+    event = { "CmdlineEnter" },
+    ft = { "go", "gomod" },
+    build = ':lua require("go.install").update_all_sync()', -- if you need to install/update all binaries
+  },
+  {
+    "dnlhc/glance.nvim",
+    config = function()
+      require("glance").setup({
+        theme = {
+          enable = true,
+          mode = "auto",
+        },
+        border = {
+          enable = false,
+          top_char = "─",
+          bottom_char = "─",
+        },
+      })
+    end,
+    keys = {
+      { "gD", "<CMD>Glance definitions<CR>", desc = "Glance definitions" },
+      { "gR", "<CMD>Glance references<CR>", desc = "Glance references" },
+      { "gY", "<CMD>Glance type_definitions<CR>", desc = "Glance type_definitions" },
+      { "gM", "<CMD>Glance implementations<CR>", desc = "Glance implementations" },
+    },
   },
 }
