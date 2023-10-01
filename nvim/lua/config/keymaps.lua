@@ -15,7 +15,10 @@ vim.keymap.set(
 -- General Keymaps
 ---------------------
 keymap.set("n", "<leader>Q", ":bufdo bdelete<CR>")
---
+
+-- save
+keymap.set("n", "<leader>w", ":w!<CR>")
+
 -- use jk to exit insert mode
 keymap.set("i", "jk", "<ESC>")
 
@@ -121,6 +124,8 @@ keymap.set("n", "<leader>gs", "<cmd>Telescope git_status<cr>") -- list current c
 
 --- restart lsp server (not on youtube nvim video)
 keymap.set("n", "<leader>rs", ":LspRestart<CR>") -- mapping to restart lsp if necessary
+-- keymap.set("n", "K", ":Lspsaga hover_doc<CR>") -- show hover doc
+-- keymap.set("n", "K", "vim.lsp.buf.hover<CR>") -- show hover doc
 
 -- toggleterm
 -- keymap.set("n", "<leader>\\", "<cmd>ToggleTerm<CR>")
