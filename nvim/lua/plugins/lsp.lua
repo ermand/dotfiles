@@ -9,6 +9,7 @@ return {
         tailwindcss = {},
         intelephense = {},
         gopls = {},
+        astro = {},
         volar = {
           filetypes = {
             "javascript",
