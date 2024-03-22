@@ -6,7 +6,10 @@ return {
   },
   opts = function(_, opts)
     local cmp = require("cmp")
-    opts.sources = cmp.config.sources(vim.list_extend(opts.sources, { { name = "copilot" } }))
+    opts.sources = cmp.config.sources(vim.list_extend(opts.sources, {
+      -- { name = "copilot" }
+      { name = "codeium" },
+    }))
     opts.formatting = {
       fields = { "kind", "abbr", "menu" },
       format = function(_, item)

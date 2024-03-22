@@ -13,20 +13,24 @@ return {
         sources = {
           -- nls.builtins.formatting.prettierd,
           nls.builtins.formatting.stylua,
-          nls.builtins.formatting.black,
-          nls.builtins.diagnostics.flake8,
-          nls.builtins.diagnostics.eslint_d.with({
-            condition = function(utils)
-              return utils.root_has_file({ ".eslintrc.js" })
-            end,
-          }),
-          nls.builtins.diagnostics.trail_space.with({ disabled_filetypes = { "NvimTree" } }),
+          -- nls.builtins.formatting.black,
+          -- nls.builtins.diagnostics.ruff,
+          -- nls.builtins.diagnostics.eslint.with({
+          --   condition = function(utils)
+          --     return utils.root_has_file({ ".eslintrc.js" })
+          --   end,
+          -- }),
+          -- nls.builtins.diagnostics.trail_space.with({ disabled_filetypes = { "NvimTree" } }),
           -- nls.builtins.diagnostics.phpstan,
-          nls.builtins.formatting.eslint_d.with({
-            condition = function(utils)
-              return utils.root_has_file({ ".eslintrc.js" })
-            end,
-          }),
+          -- nls.builtins.formatting.eslint_d.with({
+          --   condition = function(utils)
+          --     return utils.root_has_file({ ".eslintrc.js" })
+          --   end,
+          -- }),
+          nls.builtins.formatting.fish_indent,
+          nls.builtins.diagnostics.fish,
+          nls.builtins.formatting.stylua,
+          nls.builtins.formatting.shfmt,
           nls.builtins.formatting.prettierd,
         },
       }
