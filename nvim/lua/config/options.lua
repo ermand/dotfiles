@@ -1,8 +1,8 @@
--- Options are automatically loaded before lazy.nvim startup
--- Default options that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/options.lua
--- Add any additional options here
-
 local opt = vim.opt -- for conciseness
+
+vim.scriptencoding = "utf-8"
+vim.opt.encoding = "utf-8"
+vim.opt.fileencoding = "utf-8"
 
 -- line numbers
 opt.relativenumber = true -- show relative line numbers
@@ -23,7 +23,7 @@ opt.wrap = false -- disable line wrapping
 -- search settings
 opt.ignorecase = true -- ignore case when searching
 opt.smartcase = true -- if you include mixed case in your search, assumes you want case-sensitive
-opt.hlsearch = false -- highlight search results
+opt.hlsearch = true -- highlight search results
 opt.incsearch = true -- show search results as you type
 
 -- cursor line
@@ -50,6 +50,7 @@ opt.clipboard:append("unnamedplus") -- use system clipboard as default register
 -- split windows
 opt.splitright = true -- split vertical window to the right
 opt.splitbelow = true -- split horizontal window to the bottom
+opt.splitkeep = "cursor"
 
 opt.iskeyword:append("-") -- consider string-string as whole word
 
@@ -61,3 +62,18 @@ opt.undofile = true
 
 -- update time
 opt.updatetime = 50 -- set update time to 50ms
+
+vim.opt.title = true
+vim.opt.autochdir = true
+vim.opt.smartindent = true
+vim.opt.backup = false
+-- vim.opt.showcmd = true
+-- vim.opt.cmdheight = 0
+-- vim.opt.laststatus = 0
+
+vim.opt.inccommand = "split"
+vim.opt.smarttab = true
+vim.opt.breakindent = true
+vim.opt.path:append("**")
+vim.opt.wildignore:append("*/node_modules/*")
+vim.opt.formatoptions:append({ "r" })

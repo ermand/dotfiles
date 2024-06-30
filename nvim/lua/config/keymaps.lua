@@ -1,8 +1,6 @@
--- Keymaps are automatically loaded on the VeryLazy event
--- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
--- Add any additional keymaps here
-
 local keymap = vim.keymap
+
+local opts = { noremap = true, silent = true }
 
 vim.keymap.set(
   "n",
@@ -14,10 +12,9 @@ vim.keymap.set(
 ---------------------
 -- General Keymaps
 ---------------------
-keymap.set("n", "<leader>Q", ":bufdo bdelete<CR>")
-
--- save
-keymap.set("n", "<leader>w", ":w!<CR>")
+keymap.set("n", "<Leader>w", ":update<Return>", opts)
+keymap.set("n", "<Leader>q", ":quit<Return>", opts)
+keymap.set("n", "<Leader>Q", ":qa<Return>", opts)
 
 -- use jk to exit insert mode
 keymap.set("i", "jk", "<ESC>")
@@ -94,8 +91,8 @@ keymap.set("n", "<leader>tx", ":tabclose<CR>") -- close current tab
 keymap.set("n", "<leader>tn", ":tabn<CR>") --  go to next tab
 keymap.set("n", "<leader>tp", ":tabp<CR>") --  go to previous tab
 keymap.set("n", "te", ":tabedit")
-keymap.set("n", "<tab>", ":tabnext<Return>")
-keymap.set("n", "<s-tab>", ":tabprev<Return>")
+keymap.set("n", "<tab>", ":tabnext<Return>", opts)
+keymap.set("n", "<s-tab>", ":tabprev<Return>", opts)
 
 -- Resize with arrows
 keymap.set("n", "<S-Up>", ":resize -2<CR>")
@@ -175,25 +172,25 @@ vim.api.nvim_set_keymap(
   "v",
   "<leader>re",
   [[ <Esc><Cmd>lua require('refactoring').refactor('Extract Function')<CR>]],
-  { noremap = true, silent = true, expr = false }
+  { noremap = true, silent = true, expr = false, desc = "Extract Function" }
 )
 vim.api.nvim_set_keymap(
   "v",
   "<leader>rf",
   [[ <Esc><Cmd>lua require('refactoring').refactor('Extract Function To File')<CR>]],
-  { noremap = true, silent = true, expr = false }
+  { noremap = true, silent = true, expr = false, desc = "Extract Function to File" }
 )
 vim.api.nvim_set_keymap(
   "v",
   "<leader>rv",
   [[ <Esc><Cmd>lua require('refactoring').refactor('Extract Variable')<CR>]],
-  { noremap = true, silent = true, expr = false }
+  { noremap = true, silent = true, expr = false, desc = "Extract Variable" }
 )
 vim.api.nvim_set_keymap(
   "v",
   "<leader>ri",
   [[ <Esc><Cmd>lua require('refactoring').refactor('Inline Variable')<CR>]],
-  { noremap = true, silent = true, expr = false }
+  { noremap = true, silent = true, expr = false, desc = "Inline Variable" }
 )
 
 -- Extract block doesn't need visual mode
@@ -201,13 +198,13 @@ vim.api.nvim_set_keymap(
   "n",
   "<leader>rb",
   [[ <Cmd>lua require('refactoring').refactor('Extract Block')<CR>]],
-  { noremap = true, silent = true, expr = false }
+  { noremap = true, silent = true, expr = false, desc = "Extract Block" }
 )
 vim.api.nvim_set_keymap(
   "n",
   "<leader>rbf",
   [[ <Cmd>lua require('refactoring').refactor('Extract Block To File')<CR>]],
-  { noremap = true, silent = true, expr = false }
+  { noremap = true, silent = true, expr = false, desc = "Extract Block To File" }
 )
 
 -- Inline variable can also pick up the identifier currently under the cursor without visual mode
@@ -215,5 +212,5 @@ vim.api.nvim_set_keymap(
   "n",
   "<leader>ri",
   [[ <Cmd>lua require('refactoring').refactor('Inline Variable')<CR>]],
-  { noremap = true, silent = true, expr = false }
+  { noremap = true, silent = true, expr = false, desc = "Block Inline Variable" }
 )
