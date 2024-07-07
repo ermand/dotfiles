@@ -8,6 +8,7 @@ $git_status\
 $git_metrics\
 $fill\
 $nodejs\
+$python\
 $cmd_duration $jobs $time\
 $line_break\
 $character"""
@@ -25,9 +26,12 @@ truncation_length = 4
 truncate_to_repo = false
 
 [character]
-success_symbol = "[❯](purple)"
+# success_symbol = "[❯](purple)"
+# error_symbol = "[❯](red)"
+# vicmd_symbol = "[❮](green)"
+# success_symbol = ""
+vicmd_symbol = ""
 error_symbol = "[❯](red)"
-vicmd_symbol = "[❮](green)"
 
 [git_branch]
 symbol = " "
@@ -65,3 +69,6 @@ symbol = " "
 disabled = false
 style = "bold white"
 format = "[$time]($style)"
+
+[aws]
+disabled = true
