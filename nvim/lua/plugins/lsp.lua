@@ -6,25 +6,89 @@ return {
     },
     opts = {
       servers = {
+        lua_ls = {
+          settings = {
+            Lua = {
+              diagnostics = {
+                globals = { "vim" },
+                disable = { "different-requires" },
+              },
+            },
+          },
+        },
         tailwindcss = {
           root_dir = function(...)
             return require("lspconfig.util").root_pattern(".git")(...)
           end,
-        },
-        intelephense = {},
-        gopls = {},
-        astro = {},
-        volar = {
-          filetypes = {
-            "javascript",
-            "javascriptreact",
-            "javascript.jsx",
-            "typescript",
-            "typescriptreact",
-            "typescript.tsx",
-            "vue",
+          settings = {
+            includeLanguages = {
+              templ = "html",
+            },
           },
         },
+        intelephense = {},
+        gopls = {
+          filetypes = { "go", "gomod", "gowork", "gotmpl" },
+          settings = {
+            env = {
+              GOEXPERIMENT = "rangefunc",
+            },
+            formatting = {
+              gofumpt = true,
+            },
+          },
+        },
+        astro = {},
+        templ = {},
+        tsserver = {
+          root_dir = function(...)
+            return require("lspconfig.util").root_pattern(".git")(...)
+          end,
+          single_file_support = false,
+          settings = {
+            typescript = {
+              inlayHints = {
+                includeInlayParameterNameHints = "literal",
+                includeInlayParameterNameHintsWhenArgumentMatchesName = false,
+                includeInlayFunctionParameterTypeHints = true,
+                includeInlayVariableTypeHints = false,
+                includeInlayPropertyDeclarationTypeHints = true,
+                includeInlayFunctionLikeReturnTypeHints = true,
+                includeInlayEnumMemberValueHints = true,
+              },
+            },
+            javascript = {
+              inlayHints = {
+                includeInlayParameterNameHints = "all",
+                includeInlayParameterNameHintsWhenArgumentMatchesName = false,
+                includeInlayFunctionParameterTypeHints = true,
+                includeInlayVariableTypeHints = true,
+                includeInlayPropertyDeclarationTypeHints = true,
+                includeInlayFunctionLikeReturnTypeHints = true,
+                includeInlayEnumMemberValueHints = true,
+              },
+            },
+          },
+        },
+        volar = {
+          init_options = {
+            vue = {
+              hybridMode = false,
+            },
+          },
+        },
+        vtsls = {},
+        -- volar = {
+        --   filetypes = {
+        --     "javascript",
+        --     "javascriptreact",
+        --     "javascript.jsx",
+        --     "typescript",
+        --     "typescriptreact",
+        --     "typescript.tsx",
+        --     "vue",
+        --   },
+        -- },
         rust_analyzer = {},
       },
       setup = {
