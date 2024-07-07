@@ -4,6 +4,14 @@ DOTFILES=$(cd $(dirname "${BASH_SOURCE[0]}") && pwd)
 
 mkdir -p $HOME/.local/bin
 
+## zshrc
+rm -rf $HOME/.zshrc
+ln -s $DOTFILES/zsh/.zshrc $HOME/.zshrc
+
+## aliases
+rm -rf $HOME/.aliases
+ln -s $DOTFILES/zsh/.aliases $HOME/.aliases
+
 ## nvim
 rm -rf $HOME/.config/nvim
 ln -s $DOTFILES/nvim $HOME/.config/nvim
@@ -13,8 +21,8 @@ rm -rf $HOME/.config/kitty
 ln -s $DOTFILES/kitty $HOME/.config/kitty
 
 # alacritty
-# rm -rf $HOME/.config/alacritty
-# ln -s $DOTFILES/alacritty $HOME/.config/alacritty
+rm -rf $HOME/.config/alacritty
+ln -s $DOTFILES/alacritty $HOME/.config/alacritty
 
 ## wezterm
 rm -rf $HOME/.config/wezterm
@@ -32,14 +40,27 @@ ln -s $DOTFILES/zellij $HOME/.config/zellij
 rm -rf $HOME/.config/yabai
 ln -s $DOTFILES/yabai $HOME/.config/yabai
 
-
 ## skhd
 rm -rf $HOME/.config/skhd
 ln -s $DOTFILES/skhd $HOME/.config/skhd
+
+## yazi
+rm -rf $HOME/.config/yazi
+ln -s $DOTFILES/yazi $HOME/.config/yazi
+
+## karabiner
+rm -rf $HOME/.config/karabiner
+ln -s $DOTFILES/karabiner $HOME/.config/karabiner
 
 ## t
 ln -sf $DOTFILES/scripts/t $HOME/.local/bin/t
 
 ## phpactor
-rm -rf $HOME/.config/phpactor
-ln -s $DOTFILES/phpactor $HOME/.config/phpactor
+# rm -rf $HOME/.config/phpactor
+# ln -s $DOTFILES/phpactor $HOME/.config/phpactor
+
+## starship
+ln -sf $DOTFILES/starship/starship.toml $HOME/.config/starship.toml
+
+## bat
+ln -sf $DOTFILES/bat/config $HOME/.config/bat/config
