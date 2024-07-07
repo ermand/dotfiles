@@ -166,6 +166,10 @@ keymap.set("n", "<leader>bsd", "<cmd>%bd|e#|bd#<cr>|'<cr>", { desc = "Delete sur
 -- code actions
 keymap.set("n", "<leader>ce", "<cmd>CodeActionMenu<cr>", { desc = "CodeActionMenu" })
 
+-- Typescript imports and rename
+keymap.set("n", "<leader>co", "<cmd>TypescriptOrganizeImports<cr>", { desc = "Organize Imports" })
+keymap.set("n", "<leader>cR", "<cmd>TypescriptRenameFile<cr>", { desc = "Rename File" })
+
 -- refactoring.nvim
 -- Remaps for the refactoring operations currently offered by the plugin
 vim.api.nvim_set_keymap(
