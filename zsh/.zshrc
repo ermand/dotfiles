@@ -1,117 +1,146 @@
-# If you come from bash you might have to change your $PATH.
-export PATH=$HOME/bin:/usr/local/bin:~/.composer/vendor/bin:$PATH
+if [[ -f "/opt/homebrew/bin/brew" ]] then
+  # If you're using macOS, you'll want this enabled
+  eval "$(/opt/homebrew/bin/brew shellenv)"
+fi
 
-# Path to your oh-my-zsh installation.
-export ZSH="/Users/ermanddurro/.oh-my-zsh"
+# Set the directory we want to store zinit and plugins
+ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 
-# SET UTF-8 for everything
-export LC_CTYPE=en_US.UTF-8
-export LANG=en_US.UTF-8
+# Download Zinit, if it's not there yet
+if [ ! -d "$ZINIT_HOME" ]; then
+   mkdir -p "$(dirname $ZINIT_HOME)"
+   git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
+fi
 
-# Set name of the theme to load --- if set to "random", it will
-# load a random theme each time oh-my-zsh is loaded, in which case,
-# to know which specific one was loaded, run: echo $RANDOM_THEME
-# See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-#ZSH_THEME="robbyrussell"
-ZSH_THEME="spaceship"
+# Source/Load zinit
+source "${ZINIT_HOME}/zinit.zsh"
 
-# Set list of themes to pick from when loading at random
-# Setting this variable when ZSH_THEME=random will cause zsh to load
-# a theme from this variable instead of looking in ~/.oh-my-zsh/themes/
-# If set to an empty array, this variable will have no effect.
-# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
+# Add in zsh plugins
+zinit light zsh-users/zsh-syntax-highlighting
+zinit light zsh-users/zsh-completions
+zinit light zsh-users/zsh-autosuggestions
+zinit light Aloxaf/fzf-tab
 
-# Uncomment the following line to use case-sensitive completion.
-# CASE_SENSITIVE="true"
+# Add in snippets
+zinit snippet OMZP::git
+zinit snippet OMZP::sudo
+zinit snippet OMZP::aws
+zinit snippet OMZP::kubectl
+zinit snippet OMZP::kubectx
+zinit snippet OMZP::command-not-found
 
-# Uncomment the following line to use hyphen-insensitive completion.
-# Case-sensitive completion must be off. _ and - will be interchangeable.
-# HYPHEN_INSENSITIVE="true"
+# Load completions
+autoload -Uz compinit && compinit
 
-# Uncomment the following line to disable bi-weekly auto-update checks.
-# DISABLE_AUTO_UPDATE="true"
+zinit cdreplay -q
 
-# Uncomment the following line to change how often to auto-update (in days).
-# export UPDATE_ZSH_DAYS=13
-
-# Uncomment the following line to disable colors in ls.
-# DISABLE_LS_COLORS="true"
-
-# Uncomment the following line to disable auto-setting terminal title.
-# DISABLE_AUTO_TITLE="true"
-
-# Uncomment the following line to enable command auto-correction.
-# ENABLE_CORRECTION="true"
-
-# Uncomment the following line to display red dots whilst waiting for completion.
-# COMPLETION_WAITING_DOTS="true"
-
-# Uncomment the following line if you want to disable marking untracked files
-# under VCS as dirty. This makes repository status check for large repositories
-# much, much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
-
-# Uncomment the following line if you want to change the command execution time
-# stamp shown in the history command output.
-# You can set one of the optional three formats:
-# "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-# or set a custom format using the strftime function format specifications,
-# see 'man strftime' for details.
-# HIST_STAMPS="mm/dd/yyyy"
-
-# Would you like to use another custom folder than $ZSH/custom?
-# ZSH_CUSTOM=/path/to/new-custom-folder
-
-# Which plugins would you like to load?
-# Standard plugins can be found in ~/.oh-my-zsh/plugins/*
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
-plugins=(
-  git
-  zsh-syntax-highlighting
-  zsh-autosuggestions
-  grep
-)
-
-source $ZSH/oh-my-zsh.sh
-
-# User configuration
-
-# export MANPATH="/usr/local/man:$MANPATH"
-
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
-
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
+# Set prompt to be oh-my-posh
+# eval "$(oh-my-posh init zsh --config $(brew --prefix oh-my-posh)/themes/catppuccin_mocha.omp.json)"
+#
+# if [ "$TERM_PROGRAM" != "Apple_Terminal" ]; then
+#   eval "$(oh-my-posh init zsh)"
 # fi
 
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
+# Set the prompt to starship
+eval "$(starship init zsh)"
 
-# ssh
-# export SSH_KEY_PATH="~/.ssh/rsa_id"
+# Keybindings
+bindkey -e
+bindkey '^p' history-search-backward
+bindkey '^n' history-search-forward
+bindkey '^[w' kill-region
 
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-alias zshconfig="vim ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
+# History
+HISTSIZE=5000
+HISTFILE=~/.zsh_history
+SAVEHIST=$HISTSIZE
+HISTDUP=erase
+setopt appendhistory
+setopt sharehistory
+setopt hist_ignore_space
+setopt hist_ignore_all_dups
+setopt hist_save_no_dups
+setopt hist_ignore_dups
+setopt hist_find_no_dups
 
-# Spaceship
-SPACESHIP_TIME_SHOW=true
-SPACESHIP_USER_SHOW=false
-SPACESHIP_PHP_SHOW=false
-SPACESHIP_NODE_SHOW=false
-SPACESHIP_PACKAGE_SHOW=false
-# SPACESHIP_CHAR_SYMBOL="❯ "
+# Completion styling
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
+zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
+zstyle ':completion:*' menu no
+zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
+zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 
+# Aliases
+alias ls='ls --color'
+alias vim='nvim'
+alias c='clear'
 source ~/.aliases
+
+# Shell integrations
+eval "$(fzf --zsh)"
+eval "$(zoxide init zsh)"
+# PATH
+## dotfiles path
+export DOTFILES="$(dirname "$(dirname "$(readlink "${(%):-%N}")")")"
+
+## Path
+export PATH="$HOME/.local/bin:/usr/local/opt/libpq/bin:$PATH"
+
+## Poetry
+export PATH="$HOME/.poetry/bin:$PATH"
+
+## composer
+export PATH=~/.composer/vendor/bin:$PATH
+
+## nvm
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+## pnpm
+export PNPM_HOME="/Users/ermanddurro/Library/pnpm"
+export PATH="$PNPM_HOME:$PATH"
+
+## GOPATH
+export GOPATH=$(go env GOPATH)
+export PATH="$PATH:$GOPATH/bin"
+
+## Postgreql
+export PATH="/opt/homebrew/opt/postgresql@16/bin:$PATH"
+
+## KAFKA
+export LIBRARY_PATH="/opt/homebrew/Cellar/librdkafka/2.0.2/lib"
+export PKG_CONFIG_PATH="/opt/homebrew/Cellar/openssl@3/3.1.0/lib/pkgconfig"
+
+
+# Github
+# export GITHUB_TOKEN="<GITHUB_TOKEN>"
+
+# Kubeconfig
+export KUBECONFIG=/Users/ermanddurro/.kube/config:/Users/ermanddurro/.kube/eksconfig
+
+# ChatGPT
+export OPENAI_API_KEY="<OPENAI_API_KEY>"
+
+# Prompt current directory for the window
+#precmd () {print -Pn "\e]0;%~\a"}
+
+## Forge CLI
+export FORGE_API_TOKEN="<FORGE_API_TOKEN>"
+
+## herd
+export PATH="/Users/ermanddurro/Library/Application Support/Herd/bin/":$PATH
+## Herd injected PHP 8.3 configuration.
+export HERD_PHP_83_INI_SCAN_DIR="/Users/ermanddurro/Library/Application Support/Herd/config/php/83/"
+
+## Herd injected PHP 8.2 configuration.
+export HERD_PHP_82_INI_SCAN_DIR="/Users/ermanddurro/Library/Application Support/Herd/config/php/82/"
+
+PATH=~/.console-ninja/.bin:$PATH
+
+#jenv
+export PATH="$HOME/.jenv/bin:$PATH"
+eval "$(jenv init -)"
+
+export JAVA_HOME="/usr/libexec/java_home -v 1.8"
 
