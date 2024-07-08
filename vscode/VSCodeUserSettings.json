@@ -1,19 +1,572 @@
 {
-    "workbench.iconTheme": "material-icon-theme",
-    "editor.fontFamily": "Roboto Mono, Menlo, Monaco, 'Courier New', monospace",
-    "editor.fontSize": 14,
-    "editor.lineHeight": 28,
-    "editor.minimap.enabled": false,
-    "css.validate": false,
-    "scss.validate": false,
-    "files.exclude": {
-        "**/.git": true,
-        "**/.idea": true,
-        "**/.svn": true,
-        "**/.hg": true,
-        "**/CVS": true,
-        "**/.DS_Store": true
+  "[css]": {
+    "editor.detectIndentation": true,
+    "editor.tabSize": 2,
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascript]": {
+    "editor.formatOnSave": true,
+    "editor.detectIndentation": true,
+    "editor.insertSpaces": true,
+    "editor.tabSize": 2,
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[json]": {
+    "editor.detectIndentation": true,
+    "editor.insertSpaces": true,
+    "editor.tabSize": 4,
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[scss]": {
+    "editor.detectIndentation": true,
+    "editor.tabSize": 2
+  },
+  "[vue]": {
+    "editor.detectIndentation": true,
+    "editor.insertSpaces": true,
+    "editor.tabSize": 2
+  },
+  "[python]": {
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "ms-python.black-formatter"
+  },
+  "css.validate": true,
+  "diffEditor.ignoreTrimWhitespace": false,
+  "diffEditor.renderSideBySide": false,
+  "editor.autoIndent": "full",
+  "editor.cursorBlinking": "smooth",
+  "editor.fontFamily": "JetBrainsMono Nerd Font Mono",
+  "editor.fontLigatures": true,
+  "editor.fontSize": 15,
+  "editor.fontWeight": "600",
+  "editor.formatOnPaste": true,
+  "editor.formatOnSave": true,
+  "editor.formatOnType": true,
+  "editor.insertSpaces": true,
+  "editor.lineHeight": 25,
+  "editor.minimap.enabled": false,
+  "editor.multiCursorModifier": "ctrlCmd",
+  "editor.quickSuggestionsDelay": 0,
+  "editor.renderWhitespace": "boundary",
+  "editor.tabCompletion": "on",
+  "editor.tabSize": 4,
+  "editor.bracketPairColorization.enabled": true,
+  "editor.guides.bracketPairs": "active",
+  "emmet.includeLanguages": {
+    "blade": "html"
+  },
+  "explorer.openEditors.visible": 1,
+  "files.associations": {
+    "*.blade.php": "blade",
+    "*.php": "php",
+    ".php_cs": "php",
+    ".php_cs.dist": "php"
+  },
+  "files.exclude": {
+    "**/.idea": true
+  },
+  "files.trimFinalNewlines": true,
+  "files.trimTrailingWhitespace": true,
+  "gitlens.advanced.messages": {
+    "suppressCommitHasNoPreviousCommitWarning": false,
+    "suppressCommitNotFoundWarning": false,
+    "suppressFileNotUnderSourceControlWarning": false,
+    "suppressGitVersionWarning": false,
+    "suppressLineUncommittedWarning": false,
+    "suppressNoRepositoryWarning": false
+  },
+  "gitlens.keymap": "alternate",
+  "importCost.typescriptExtensions": [
+    "\\.vue$"
+  ],
+  "markdown-pdf.breaks": true,
+  "markdown-pdf.styles": [
+    "~/Dropbox/Apps/vscode/markdown-pdf.css"
+  ],
+  "php-cs-fixer.lastDownload": 1707322701959,
+  "php-cs-fixer.onsave": true,
+  "php.suggest.basic": false,
+  "php.validate.run": "onType",
+  "scss.validate": true,
+  "search.exclude": {
+    "**/bower_components": true,
+    "**/node_modules": true,
+    "**/vendor/[abcdefghijkmnopqrstuvwxyz]*": true,
+    "**/vendor/l[bcdefghijklmnopqrstuvwxyz]*": true,
+    "data": true,
+    "storage/framework/views": true
+  },
+  "terminal.external.osxExec": "iTerm.app",
+  "terminal.integrated.fontFamily": "'DroidSansMono Nerd Font', 'JetBrains Mono', 'FiraCode Nerd Font', 'DejaVu Sans Mono'",
+  "terminal.integrated.fontSize": 15,
+  "terminal.integrated.fontWeight": "500",
+  "window.openFilesInNewWindow": "on",
+  "workbench.colorTheme": "Tokyo Night",
+  "workbench.editor.highlightModifiedTabs": true,
+  "workbench.fontAliasing": "auto",
+  "workbench.iconTheme": "catppuccin-mocha",
+  "workbench.sideBar.location": "right",
+  "php-cs-fixer.executablePath": "${extensionPath}/php-cs-fixer.phar",
+  "[php]": {
+    "editor.defaultFormatter": "junstyle.php-cs-fixer"
+  },
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "editor.codeActionsOnSave": {
+    "source.addMissingImports": "explicit",
+    "source.organizeImports": "explicit",
+    "source.fixAll": "explicit"
+  },
+  "[markdown]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "highlight-matching-tag.styles": {
+    "opening": {
+      "left": {
+        "custom": {
+          "borderWidth": "0 0 0 3px",
+          "borderStyle": "solid",
+          "borderColor": "yellow",
+          "borderRadius": "5px"
+        }
+      },
+      "right": {
+        "custom": {
+          "borderWidth": "0 3px 0 0",
+          "borderStyle": "solid",
+          "borderColor": "yellow",
+          "borderRadius": "5px"
+        }
+      }
+    }
+  },
+  "eslint.options": {
+    "configFile": ".eslintrc.js"
+  },
+  "eslint.format.enable": true,
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "search.mode": "newEditor",
+  "workbench.editor.decorations.colors": true,
+  "editor.suggestSelection": "first",
+  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+  "todo-tree.general.tags": [
+    "BUG",
+    "HACK",
+    "FIXME",
+    "TODO",
+    "XXX",
+    "[ ]",
+    "[x]"
+  ],
+  "todo-tree.regex.regex": "(//|#|<!--|;|/\\*|^|^\\s*(-|\\d+.))\\s*($TAGS)",
+  "[jsonc]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  "editor.inlineSuggest.enabled": true,
+  "editor.unicodeHighlight.ambiguousCharacters": false,
+  "editor.lineNumbers": "relative",
+  "editor.stickyScroll.enabled": true,
+  "editor.linkedEditing": true,
+  "editor.suggest.insertMode": "replace",
+  "typescript.preferences.importModuleSpecifier": "non-relative",
+  "explorer.confirmDelete": false,
+  "explorer.confirmDragAndDrop": false,
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "extensions.autoUpdate": "onlyEnabledExtensions",
+  "extensions.ignoreRecommendations": true,
+  "zenMode.hideLineNumbers": false,
+  "go.toolsManagement.autoUpdate": true,
+  "terminal.integrated.env.osx": {},
+  "vim.leader": "<space>",
+  "vim.foldfix": true,
+  "vim.handleKeys": {
+    "<C-a>": false,
+    "<C-f>": false,
+    "<C-d>": true
+  },
+  "vim.smartRelativeLine": true,
+  "vim.easymotion": false,
+  "vim.incsearch": true,
+  "vim.useSystemClipboard": true,
+  "vim.useCtrlKeys": true,
+  "vim.hlsearch": true,
+  "vim.highlightedyank.enable": true,
+  "vim.highlightedyank.color": "rgba(230, 97, 89, 0.7)",
+  "vim.highlightedyank.textColor": "white",
+  "vim.insertModeKeyBindings": [
+    {
+      "before": [
+        "j",
+        "k"
+      ],
+      "after": [
+        "<Esc>"
+      ]
+    }
+  ],
+  "vim.normalModeKeyBindingsNonRecursive": [
+    {
+      "before": [
+        "<leader>",
+        "i"
+      ],
+      "commands": [
+        "extension.toggleBool"
+      ]
     },
-    "php.validate.run": "onType",
-    "php.executablePath": "/usr/local/bin/php"
+    {
+      "before": [
+        "z",
+        "a"
+      ],
+      "commands": [
+        "editor.toggleFold"
+      ]
+    },
+    {
+      "before": [
+        "<leader>",
+        "e"
+      ],
+      "commands": [
+        "workbench.action.toggleSidebarVisibility"
+      ]
+    },
+    {
+      "before": [
+        "<C-d>"
+      ],
+      "after": [
+        "<C-d>",
+        "z",
+        "z"
+      ]
+    },
+    {
+      "before": [
+        "<C-u>"
+      ],
+      "after": [
+        "<C-u>",
+        "z",
+        "z"
+      ]
+    },
+    {
+      "before": [
+        "<C-h>"
+      ],
+      "after": [
+        "<C-w>",
+        "h"
+      ]
+    },
+    {
+      "before": [
+        "<C-j>"
+      ],
+      "after": [
+        "<C-w>",
+        "j"
+      ]
+    },
+    {
+      "before": [
+        "<C-k>"
+      ],
+      "after": [
+        "<C-w>",
+        "k"
+      ]
+    },
+    {
+      "before": [
+        "<C-l>"
+      ],
+      "after": [
+        "<C-w>",
+        "l"
+      ]
+    },
+    {
+      "before": [
+        "<Leader>",
+        "b",
+        "n"
+      ],
+      "commands": [
+        ":tabnext"
+      ]
+    },
+    {
+      "before": [
+        "<Leader>",
+        "b",
+        "p"
+      ],
+      "commands": [
+        ":tabprev"
+      ]
+    },
+    {
+      "before": [
+        "<Leader>",
+        "b",
+        "d"
+      ],
+      "commands": [
+        ":tabclose"
+      ]
+    },
+    {
+      "before": [
+        "<Leader>",
+        "h"
+      ],
+      "commands": [
+        ":noh"
+      ]
+    },
+    {
+      "before": [
+        "leader",
+        "w"
+      ],
+      "commands": [
+        ":w!"
+      ]
+    },
+    {
+      "before": [
+        "leader",
+        "x"
+      ],
+      "commands": [
+        ":x!"
+      ]
+    },
+    {
+      "before": [
+        "<c-a>"
+      ],
+      "after": [
+        "g",
+        "g",
+        "V",
+        "G"
+      ]
+    },
+    {
+      "before": [
+        "leader",
+        "q"
+      ],
+      "commands": [
+        "workbench.action.closeWindow"
+      ]
+    },
+    {
+      "before": [
+        "<Leader>",
+        "s",
+        "f"
+      ],
+      "commands": [
+        "workbench.action.quickOpen"
+      ]
+    },
+    {
+      "before": [
+        "<Leader>",
+        "s",
+        "g"
+      ],
+      "commands": [
+        "workbench.action.findInFiles"
+      ]
+    },
+    {
+      "before": [
+        "<Leader>",
+        "c",
+        "r"
+      ],
+      "commands": [
+        "editor.action.rename"
+      ]
+    },
+    {
+      "before": [
+        "<Leader>",
+        "c",
+        "f"
+      ],
+      "commands": [
+        "editor.action.formatDocument"
+      ]
+    },
+    {
+      "before": [
+        "<Leader>",
+        "c",
+        "a"
+      ],
+      "commands": [
+        "editor.action.quickFix"
+      ]
+    },
+    {
+      "before": [
+        "<Leader>",
+        "c",
+        "A"
+      ],
+      "commands": [
+        "code-runner.run"
+      ]
+    },
+    {
+      "before": [
+        "<Leader>",
+        "l",
+        "R"
+      ],
+      "commands": [
+        "editor.action.goToReferences"
+      ]
+    },
+    {
+      "before": [
+        "<Leader>",
+        "k"
+      ],
+      "commands": [
+        "editor.action.showHover"
+      ]
+    },
+    {
+      "before": [
+        "K"
+      ],
+      "commands": [
+        "editor.action.showDefinitionPreviewHover"
+      ]
+    },
+    {
+      "before": [
+        "]",
+        "d"
+      ],
+      "commands": [
+        "editor.action.marker.next"
+      ]
+    },
+    {
+      "before": [
+        "[",
+        "d"
+      ],
+      "commands": [
+        "editor.action.marker.prev"
+      ]
+    },
+    {
+      "before": [
+        "<Leader>",
+        "s",
+        "v"
+      ],
+      "commands": [
+        ":vsp"
+      ]
+    },
+    {
+      "before": [
+        "<Leader>",
+        "l",
+        "i"
+      ],
+      "commands": [
+        "editor.action.goToImplementation"
+      ]
+    },
+    {
+      "before": [
+        "<Leader>",
+        "l",
+        "D"
+      ],
+      "commands": [
+        "editor.action.goToDeclaration"
+      ]
+    }
+  ],
+  "vim.visualModeKeyBindings": [
+    {
+      "before": [
+        ">"
+      ],
+      "after": [
+        ">",
+        "g",
+        "v"
+      ]
+    },
+    {
+      "before": [
+        "<"
+      ],
+      "after": [
+        "<",
+        "g",
+        "v"
+      ]
+    }
+  ],
+  "intelephense.files.exclude": [
+    "**/.git/**",
+    "**/.svn/**",
+    "**/.hg/**",
+    "**/CVS/**",
+    "**/.DS_Store/**",
+    "**/node_modules/**",
+    "**/bower_components/**",
+    "**/.history/**"
+  ],
+  "github.copilot.enable": {
+    "*": true,
+    "plaintext": false,
+    "markdown": false,
+    "scminput": false
+  },
+  "php.validate.executablePath": "/opt/homebrew/bin/php",
+  "terminal.integrated.env.linux": {},
+  "projectManager.git.baseFolders": [
+    "$HOME/workspace"
+  ],
+  "projectManager.sortList": "Recent",
+  "sortJSON.orderOverride": [
+    "name",
+    "version",
+    "description"
+  ],
+  "sortJSON.orderUnderride": [
+    "dependencies",
+    "devDependencies"
+  ],
+  "[svelte]": {
+    "editor.defaultFormatter": "svelte.svelte-vscode"
+  },
+  "workbench.tree.indent": 15,
+  "workbench.tree.renderIndentGuides": "always",
+  "workbench.colorCustomizations": {
+    "tree.indentGuidesStroke": "#05ef3c"
+  },
+  "console-ninja.featureSet": "Community"
 }
