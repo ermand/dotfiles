@@ -1,0 +1,77 @@
+# Common
+alias ..="cd .."
+alias ...="cd ../.."
+alias h="cd ~"
+alias c="clear"
+
+#alias ll="ls -lahG"
+alias ll="exa -l -g --icons"
+alias lla="ll -a"
+alias llt="ll --tree --level=2 -a"
+
+alias work="cd ~/Code"
+alias personal="cd ~/Code/personal"
+alias vm_lumas="cd ~/Code/Avenso/vm-spryker-ansible"
+alias tree="find . -print | sed -e 's;[^/]*/;|____;g;s;____|; |;g'"
+alias subl="open -a /Applications/Sublime\ Text.app"
+alias rm='rm -i' # confirm removal
+alias cp='cp -i' # confirm copy
+alias mv='mv -i' # confirm move
+alias weather='curl v2.wttr.in' # print weather for current location (https://github.com/chubin/wttr.in)
+#alias atom='open -a "Atom"'
+alias vim='nvim'
+
+# Laravel
+alias art="php artisan"
+alias tinker="php artisan tinker"
+alias migrate="php artisan migrate"
+alias refresh="php artisan migrate:refresh --seed"
+alias code_sniff="php-cs-fixer --verbose fix"
+alias cs="php-cs-fixer --verbose fix"
+alias ci="composer install"
+alias sail="./vendor/bin/sail"
+alias smigrate="./vendor/bin/sail migrate"
+alias sfresh="./vendor/bin/sail migrate:fresh --seed"
+
+# npm & yarn
+alias y="yarn"
+alias yrd="yarn run dev"
+alias yrw="yarn run watch"
+alias yrp="yarn run production"
+alias yrs="yarn run serve"
+alias nrd="npm run dev"
+alias nrw="npm run watch"
+alias nrp="npm run production"
+alias nrs="npm run serve"
+
+# Docker
+alias dc="docker-compose"
+alias d-art="docker-compose exec php php /var/www/artisan"
+alias d-run="docker-compose exec"
+
+# Test
+#alias test='vendor/bin/phpunit'
+#alias tf='vendor/bin/phpunit --filter'
+#alias tct="phpdbg -qrr ./vendor/phpunit/phpunit/phpunit --coverage-text"
+#alias tch="phpdbg -qrr ./vendor/phpunit/phpunit/phpunit --coverage-html"
+#alias stop_mysql='pgrep mysql | xargs kill'
+
+# Git
+alias gs='git status'
+alias ga='git add'
+alias gaa='git add .'
+alias gc='git commit -m'
+alias gpush='git push'
+alias gpull='git pull'
+alias gch='git checkout'
+alias gdiff='git diff'
+alias glog="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
+alias nah="git reset --hard && git clean -df"
+alias wip="git add . && git commit -m 'wip'"
+alias cleanup-dev-branches="!f() { git branch --merged ${1-master} | grep -v " ${1-master}$" | xargs -r git branch -d; }; f"
+
+# reload bash aliases
+reload () {
+    echo "Reloading bash aliases"
+    source "${HOME}/.zshrc"
+}
