@@ -66,3 +66,6 @@ Pods/
 
 # Karabiner
 .config/karabiner/automatic_backups
+
+zsh/.aliases
+

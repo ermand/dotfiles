@@ -12,7 +12,7 @@ return {
       },
 
       {
-        "<space>-",
+        "<leader>=",
         function()
           require("oil").toggle_float()
         end,
