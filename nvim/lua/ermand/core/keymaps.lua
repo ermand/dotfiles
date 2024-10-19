@@ -9,10 +9,10 @@ keymap.set("i", "<c-u>", "<c-r>=trim(system('uuidgen | tr A-Z a-z'))<cr>", { des
 
 -- Copy current file path
 vim.api.nvim_set_keymap(
-	"n",
-	"<leader>cp",
-	[[:lua vim.fn.setreg('+', vim.fn.expand('%:p'))<CR>]],
-	{ noremap = true, silent = true }
+  "n",
+  "<leader>cp",
+  [[:lua vim.fn.setreg('+', vim.fn.expand('%:p'))<CR>]],
+  { noremap = true, silent = true }
 )
 
 ---------------------
@@ -103,30 +103,32 @@ keymap.set("n", "<S-Up>", ":resize -2<CR>")
 keymap.set("n", "<S-Down>", ":resize +2<CR>")
 keymap.set("n", "<S-Left>", ":vertical resize -2<CR>")
 keymap.set("n", "<S-Right>", ":vertical resize +2<CR>")
+keymap.set("n", "<A-S-l>", ":vertical resize -2<CR>")
+keymap.set("n", "<A-S-h>", ":vertical resize +2<CR>")
 
 -- refactoring.nvim
 -- Remaps for the refactoring operations currently offered by the plugin
 vim.api.nvim_set_keymap(
-	"v",
-	"<leader>re",
-	[[ <Esc><Cmd>lua require('refactoring').refactor('Extract Function')<CR>]],
-	{ noremap = true, silent = true, expr = false, desc = "Extract Function" }
+  "v",
+  "<leader>re",
+  [[ <Esc><Cmd>lua require('refactoring').refactor('Extract Function')<CR>]],
+  { noremap = true, silent = true, expr = false, desc = "Extract Function" }
 )
 vim.api.nvim_set_keymap(
-	"v",
-	"<leader>rf",
-	[[ <Esc><Cmd>lua require('refactoring').refactor('Extract Function To File')<CR>]],
-	{ noremap = true, silent = true, expr = false, desc = "Extract Function to File" }
+  "v",
+  "<leader>rf",
+  [[ <Esc><Cmd>lua require('refactoring').refactor('Extract Function To File')<CR>]],
+  { noremap = true, silent = true, expr = false, desc = "Extract Function to File" }
 )
 vim.api.nvim_set_keymap(
-	"v",
-	"<leader>rv",
-	[[ <Esc><Cmd>lua require('refactoring').refactor('Extract Variable')<CR>]],
-	{ noremap = true, silent = true, expr = false, desc = "Extract Variable" }
+  "v",
+  "<leader>rv",
+  [[ <Esc><Cmd>lua require('refactoring').refactor('Extract Variable')<CR>]],
+  { noremap = true, silent = true, expr = false, desc = "Extract Variable" }
 )
 vim.api.nvim_set_keymap(
-	"v",
-	"<leader>ri",
-	[[ <Esc><Cmd>lua require('refactoring').refactor('Inline Variable')<CR>]],
-	{ noremap = true, silent = true, expr = false, desc = "Inline Variable" }
+  "v",
+  "<leader>ri",
+  [[ <Esc><Cmd>lua require('refactoring').refactor('Inline Variable')<CR>]],
+  { noremap = true, silent = true, expr = false, desc = "Inline Variable" }
 )
