@@ -72,3 +72,6 @@ format = "[$time]($style)"
 
 [aws]
 disabled = true
+
+command_timeout = 2000
+
