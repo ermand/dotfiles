@@ -6,9 +6,9 @@ local wezterm = require("wezterm")
 -- end)
 
 return {
-	font = wezterm.font_with_fallback({ "JetBrains Mono", { family = "Symbols Nerd Font Mono", scale = 0.75 } }),
-	font_size = 13.0,
-	line_height = 1.3,
+	font = wezterm.font_with_fallback({ "Dank Mono", { family = "Symbols Nerd Font Mono", scale = 0.75 } }),
+	font_size = 15.0,
+	line_height = 1.4,
 	color_scheme = "Catppuccin Mocha",
 	-- window_background_opacity = 0.8,
 	-- use_fancy_tab_bar = false,
